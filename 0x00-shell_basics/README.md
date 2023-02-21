@@ -1,1 +1,1 @@
-this is my readme file for dshell basics
+this is my readme file for shell basics

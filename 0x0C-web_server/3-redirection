@@ -4,7 +4,7 @@ apt-get update
 apt-get -y install nginx
 sudu ufx allow 'Nginx HTTP'
 mkdir -p /var/www/html/
-sudu chmod -R 775 /var/www
+sudu chmod -R 755 /var/www
 echo 'Hello World!' > /var/www/html/index.html
 SERVER_CONFIG=\
 "server {
@@ -21,7 +21,7 @@ SERVER_CONFIG=\
 	}
 }"
 
-bash =c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	service nginx start
